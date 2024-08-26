@@ -1,11 +1,8 @@
 # Treat all files with .asm extension as Assembly
 *.asm linguist-language=Assembly
 
+# Treat all files with .H as Assembly language
+*.H linguist-language=Assembly
+
 # Ignore all JSON files with respect to language statistics
 *.json linguist-vendored
-
-# Ignore all .exe files in language statistics
-*.exe linguist-vendored
-
-# Ignore all .bin files in language statistics
-*.bin linguist-vendored

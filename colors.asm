@@ -17,7 +17,7 @@
 
 INCLUDE     "HVGLIB.H"              ; Home Video Game Library Header
 
-VL	    EQU 96	                    ; Number of vertical lines used for screen data
+VL      EQU 96	                    ; Number of vertical lines used for screen data
 SELCROW EQU $4F13                   ; SELected Color ROW (matcher)
 COLORS  EQU $4F14                   ; Stored colors (8 bytes)
 CBOUND  EQU 00010100b               ; Frame color=00, Horizontal Color Boundary=010100 (20=80/4)
@@ -493,26 +493,26 @@ DISPHEX:
     INC     E                       ; Adjust X coordinate for slight margin
     INC     E
     INC     E
-	LD      C, A                    ; Load value to display
-	SRL     C                       ; Shift right logical
-	SRL     C                       ; Shift right logical
-	SRL     C                       ; Shift right logical
-	SRL     C                       ; Shift right logical
-	LD      B, 0                    ; Zero B
-	LD      HL, HEXDIG              ; Load address of hex digits
-	ADD     HL, BC                  ; Adjust address for the current digit
-	LD      A, (HL)                 ; Load the digit ASCII
-	POP     BC
+    LD      C, A                    ; Load value to display
+    SRL     C                       ; Shift right logical
+    SRL     C                       ; Shift right logical
+    SRL     C                       ; Shift right logical
+    SRL     C                       ; Shift right logical
+    LD      B, 0                    ; Zero B
+    LD      HL, HEXDIG              ; Load address of hex digits
+    ADD     HL, BC                  ; Adjust address for the current digit
+    LD      A, (HL)                 ; Load the digit ASCII
+    POP     BC
     SYSTEM  (CHRDIS)                ; Display character
-	POP     AF                      ; Restore byte to display from stack
+    POP     AF                      ; Restore byte to display from stack
     PUSH    BC
-	AND     $0F                     ; Mask out upper nibble 
-	LD      C, A                    ; Load value to display to C
-	LD      B, 0                    ; Zero B
-	LD      HL, HEXDIG              ; Load address of hex digits
-	ADD     HL, BC                  ; Adjust address for the current digit
-	LD      A, (HL)                 ; Load the digit ASCII
-	POP     BC
+    AND     $0F                     ; Mask out upper nibble 
+    LD      C, A                    ; Load value to display to C
+    LD      B, 0                    ; Zero B
+    LD      HL, HEXDIG              ; Load address of hex digits
+    ADD     HL, BC                  ; Adjust address for the current digit
+    LD      A, (HL)                 ; Load the digit ASCII
+    POP     BC
     SYSTEM  (CHRDIS)                ; Display character
     POP     AF                      ; Restore registers from stack
     POP     DE

@@ -1,0 +1,82 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "zmac",
+            "type": "shell",
+            "command": "c:\\zmac\\zmac.exe",
+            "args": [
+                "-O",
+                 "-o",
+                "C:\\mame\\roms\\astrocde\\${fileBasenameNoExtension}.bin",
+                "-x",
+                "C:\\mame\\roms\\astrocde\\${fileBasenameNoExtension}.lst",
+                "${file}"
+            ],
+            "presentation": {
+                //"reveal": "never"
+                "reveal": "always",  // Always show terminal output
+                "panel": "shared",    // Reuse the same terminal panel for this task
+                "showReuseMessage": false,
+                "clear": true,
+                "echo": true // This option ensures the command and its output are echoed to the terminal
+            },
+        },
+        {
+            "label": "mame",
+            "type": "shell",
+            "options": {
+                "cwd": "c:\\mame"
+            },
+            "command": "c:\\mame\\mame.exe",
+            "args": [
+                "-skip_gameinfo",
+                //"-debug",
+                "astrocde",
+                "-cart",
+                "C:\\mame\\roms\\astrocde\\${fileBasenameNoExtension}.bin"
+            ],
+            "presentation": {
+                "reveal": "never",
+                "showReuseMessage": false,
+                "clear": true,
+            }
+        },
+        {
+            "label": "ftp",
+            "type": "shell",
+            "options": {
+                "cwd": "C:\\mame\\roms\\astrocde"
+            },
+            "command": "c:\\zmac\\ftpup.bat",
+            "args": [
+                "${fileBasenameNoExtension}.bin"
+            ],
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "label": "Assemble & Emulate",
+            "dependsOn": [
+                "zmac",
+                "mame"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Assemble & FTP",
+            "dependsOn": [
+                "zmac",
+                "ftp"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

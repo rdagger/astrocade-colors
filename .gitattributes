@@ -1,0 +1,5 @@
+# Treat all files with .asm extension as Assembly
+*.asm linguist-language=Assembly
+
+# Ignore all JSON files with respect to language statistics
+*.json linguist-vendored

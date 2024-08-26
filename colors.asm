@@ -482,7 +482,7 @@ INIT_SCREEN:                        ; Initialize screen
 
 ; ****** DISPHEX
 ; Purpose:      Draw color values in hex
-; Arguments:   C=color mask, D=Y, E=X, HL=Address of value to display
+; Arguments:    C=color mask, D=Y, E=X, HL=Address of value to display
 DISPHEX:
     PUSH    HL                      ; Preserve registers to stack
     PUSH    DE
@@ -523,12 +523,12 @@ HEXDIG:
     DB      "0123456789ABCDEF"      ; Hexadecimal digits
 
 ; ****** DOit TaBLes
-; Purpose: Handle user joystick input (Viewer)
+; Purpose:      Handle user joystick input (Viewer)
 DOTBLV:
     RC SP0, HANDLEPOTV, $00         ; Routine to handle knob movement
     RC SJ0, HANDLEJOYV, ENDx        ; Routine to handle joystick movement
 
-; Purpose: Handle user joystick input (Matcher)
+; Purpose:      Handle user joystick input (Matcher)
 DOTBLM:
     RC SP0, HANDLEPOTM, $00         ; Routine to handle knob movement
     RC SJ0, HANDLEJOYM, ENDx        ; Routine to handle joystick movement
@@ -541,7 +541,7 @@ PRGNAME2:
     DB      "COLOR MATCHER"         ; Program 2 name
     DB      0                       ; ... must be followed by 0
 
-; Color Table
+; COLor TABle
 ; https://ballyalley.com/ml/ml_docs/astrocade_palette.html
 COLTAB:   
     DB      $00                     ; Color 3 Left Black

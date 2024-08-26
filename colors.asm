@@ -17,7 +17,7 @@
 
 INCLUDE     "HVGLIB.H"              ; Home Video Game Library Header
 
-VL      EQU 96	                    ; Number of vertical lines used for screen data
+VL      EQU 96                      ; Number of vertical lines used for screen data
 SELCROW EQU $4F13                   ; SELected Color ROW (matcher)
 COLORS  EQU $4F14                   ; Stored colors (8 bytes)
 CBOUND  EQU 00010100b               ; Frame color=00, Horizontal Color Boundary=010100 (20=80/4)
@@ -525,13 +525,13 @@ HEXDIG:
 ; ****** DOit TaBLes
 ; Purpose: Handle user joystick input (Viewer)
 DOTBLV:
-        RC SP0, HANDLEPOTV, $00      ; Routine to handle knob movement
-        RC SJ0, HANDLEJOYV, ENDx     ; Routine to handle joystick movement
+    RC SP0, HANDLEPOTV, $00         ; Routine to handle knob movement
+    RC SJ0, HANDLEJOYV, ENDx        ; Routine to handle joystick movement
 
 ; Purpose: Handle user joystick input (Matcher)
 DOTBLM:
-        RC SP0, HANDLEPOTM, $00      ; Routine to handle knob movement
-        RC SJ0, HANDLEJOYM, ENDx     ; Routine to handle joystick movement
+    RC SP0, HANDLEPOTM, $00         ; Routine to handle knob movement
+    RC SJ0, HANDLEJOYM, ENDx        ; Routine to handle joystick movement
 
 PRGNAME:    
     DB      "COLOR VIEWER"          ; Program 1 name

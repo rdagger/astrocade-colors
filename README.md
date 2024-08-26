@@ -4,6 +4,10 @@
 
 **Color Viewer & Color Matcher** is a utility program designed for the Bally Astrocade, allowing users to cycle through and compare the console's color palette. The utility comprises two separate programs: a Color Viewer and a Color Matcher.
 
+![viewer](https://github.com/user-attachments/assets/f879bd83-68b0-44c4-871c-2957f7944436)
+![matcher](https://github.com/user-attachments/assets/297ee50b-6536-4556-8915-7957c622f3b1)
+
+
 ### Features
 
 - **Color Viewer**: 

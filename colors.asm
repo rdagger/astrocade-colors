@@ -104,7 +104,7 @@ HANDLEPOTV:
     IN     A, (SW0)                 ; Load accumulator with controller 1 switches
     BIT    CHTRIG, A                ; Check trigger bit (knob only works if trigger pulled)
     RET    Z                        ; Return from subroutine if trigger interlock not engaged
-    LD     A, B                     ; Load pot value to accumlator
+    LD     A, B                     ; Load pot value to accumulator
     CPL                             ; Flip pot value so counter clockwise decreases and clockwise increases
     AND    11111000b                ; Mask lower bits to limit to multiples of 8
     LD     B, A                     ; Store pot value
@@ -172,7 +172,7 @@ HANDLEPOTM:
     IN     A, (SW0)                 ; Load accumulator with controller 1 switches
     BIT    CHTRIG, A                ; Check trigger bit (knob only works if trigger pulled)
     RET    Z                        ; Return from subroutine if trigger interlock not engaged
-    LD     A, B                     ; Load pot value to accumlator
+    LD     A, B                     ; Load pot value to accumulator
     CPL                             ; Flip pot value so counter clockwise decreases and clockwise increases
     LD     D, A                     ; Store pot value to D
     CALL   SETCOLORM                ; Set and store row color
@@ -213,7 +213,7 @@ DRAWCOLORSV:
     LD      E, $8C                  ; Starting X coordinate
     LD      HL, COLORS+7            ; Color index
 COLORLOOPV:
-    SYSTEM  RECTAN                  ; Draw wall rectangle
+    SYSTEM  RECTAN                  ; Draw color rectangle
     PUSH    BC                      ; Store BC to stack
     LD      C, 00001100b            ; 00=no enlarge, 00=plop, 1100=colors
     CALL    DISPHEX                 ; Display color hex value

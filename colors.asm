@@ -300,19 +300,19 @@ DRAWARROWTEXT:
     ADD     A, D                    ; Add Y coordinate offset to Y
     LD      D, A                    ; Load Y coordinate to D
     CALL    GETSELECTEDCOLOR        ; Get the selected color
-    AND     $0F                     ; Mask color to retrieve luminescence
-    CP      $04                     ; Compare luminescence
-    JR      C, DARKLUM              ; If luminescence < $4 (range $0-$3) skip to dark luminescence
-    CP      $08                     ; Compare luminescence
-    JR      C, LIGHTLUM             ; If luminescence < $8 (range $4-$7) skip to light luminescence
-    CP      $0C                     ; Compare luminescence
-    JR      C, DARKLUM              ; If luminescence < $C (range $8-$B) skip to dark luminescence
-    CP      $10                     ; Compare luminescence
-    JR      C, LIGHTLUM             ; If luminescence < $10 (range $C-$F) skip to light luminescence
+    AND     $0F                     ; Mask color to retrieve luminance 
+    CP      $04                     ; Compare luminance 
+    JR      C, DARKLUM              ; If luminance  < $4 (range $0-$3) skip to dark luminance 
+    CP      $08                     ; Compare luminance 
+    JR      C, LIGHTLUM             ; If luminance  < $8 (range $4-$7) skip to light luminance 
+    CP      $0C                     ; Compare luminance 
+    JR      C, DARKLUM              ; If luminance  < $C (range $8-$B) skip to dark luminance 
+    CP      $10                     ; Compare luminance 
+    JR      C, LIGHTLUM             ; If luminance  < $10 (range $C-$F) skip to light luminance 
 LIGHTLUM
     LD      A, (SELCROW)            ; Load selected color row
     XOR     2                       ; Set accumulator to black color mask for light background
-    JR      SETLUM                  ; Jump to set luminescence
+    JR      SETLUM                  ; Jump to set luminance 
 DARKLUM:
     LD      A, (SELCROW)            ; Load selected color row            
     XOR     1                       ; Set accumulator to white color mask for dark background

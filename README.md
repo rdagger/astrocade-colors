@@ -6,6 +6,8 @@ This repo contains three utilities for the Bally Astrocade that help developers 
 
 ![viewer](https://github.com/user-attachments/assets/f879bd83-68b0-44c4-871c-2957f7944436)
 ![matcher](https://github.com/user-attachments/assets/297ee50b-6536-4556-8915-7957c622f3b1)
+![table](https://github.com/user-attachments/assets/a662f60f-554d-48d9-8ed7-c337ac966f4b)
+
 
 ## Included Utilities
 

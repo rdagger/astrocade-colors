@@ -60,6 +60,9 @@ A reference palette is available at the Bally Alley site:
 https://ballyalley.com/ml/ml_docs/astrocade_palette.html  
 These colors come from MAME and do not precisely match a real Astrocade. The utilities in this repo are designed to help choose colors on actual hardware.
 
+<img alt="mame vs astrocade" src="https://github.com/user-attachments/assets/a58c96fc-43ea-4a60-ad1b-5589cb929dd5" />
+
+
 ## Development
 
 - Developed with **Visual Studio Code** and the **MAME debugger**.
